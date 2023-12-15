@@ -1,10 +1,20 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import { notFound } from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const locales = ['en', 'pt']
+
+interface RootLayoutProps {
+  children: React.ReactNode
+  params: {
+    locale: string
+  }
+}
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,11 +23,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+  params: { locale },
+}: RootLayoutProps) {
+  if (!locales.includes(locale)) notFound()
+
   return (
-    <html lang="pt-BR">
+    <html lang={locale}>
       <body className={inter.className}>
         <div className="flex flex-col w-full min-h-screen">
           <Header />
