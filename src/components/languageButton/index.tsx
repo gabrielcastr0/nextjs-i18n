@@ -12,7 +12,7 @@ const LanguageButton = ({ flag, alt, locale }: LanguageButtonProps) => {
     <Link href="/" locale={locale as 'en' | 'pt'}>
       <button
         type="button"
-        className="py-1 px-3 bg-transparent hover:bg-gray-800 rounded-md flex items-center justify-center gap-2"
+        className="flex items-center justify-center gap-2 rounded-md bg-transparent px-3 py-1 hover:bg-gray-800"
       >
         <Image width={48} height={48} alt={alt} src={flag} />
       </button>

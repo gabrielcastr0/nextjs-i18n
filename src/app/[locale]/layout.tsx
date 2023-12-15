@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <div className="flex flex-col w-full min-h-screen">
+        <div className="flex min-h-screen w-full flex-col">
           <Header />
           {children}
           <Footer />
